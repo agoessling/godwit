@@ -8269,6 +8269,53 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="-3.4" y="-1" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="4.6" y="-1" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 </package>
+<package name="MICROSD-5031821853">
+<smd name="5" x="7.645" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="4" x="8.745" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="3" x="9.845" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="2" x="10.945" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="1" x="12.045" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="6" x="6.545" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="7" x="5.445" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="8" x="4.345" y="0.63" dx="0.8" dy="1.24" layer="1"/>
+<smd name="SHIELD1" x="0" y="0" dx="0.95" dy="2.5" layer="1"/>
+<smd name="SHIELD5" x="14.39" y="0.15" dx="1.15" dy="2.2" layer="1"/>
+<smd name="SHIELD2" x="0.1" y="-11.33" dx="1.15" dy="2.2" layer="1"/>
+<smd name="SHIELD4" x="12.185" y="-12.125" dx="1.5" dy="1.15" layer="1"/>
+<smd name="SHIELD3" x="4.405" y="-12.125" dx="1.5" dy="1.15" layer="1"/>
+<smd name="CRD_DETL" x="13.985" y="-11" dx="1.16" dy="1.2" layer="1"/>
+<smd name="CRD_DETH" x="13.985" y="-2" dx="1.16" dy="1.25" layer="1"/>
+<wire x1="0" y1="2.5" x2="3.945" y2="2.5" width="0.2032" layer="51"/>
+<wire x1="3.945" y1="2.5" x2="3.945" y2="-0.95" width="0.2032" layer="51"/>
+<wire x1="12.445" y1="2.5" x2="12.445" y2="-0.95" width="0.2032" layer="51"/>
+<wire x1="12.445" y1="2.5" x2="14.39" y2="2.5" width="0.2032" layer="51"/>
+<wire x1="14.39" y1="2.5" x2="14.39" y2="-5" width="0.2032" layer="51"/>
+<wire x1="14.39" y1="-5" x2="14" y2="-5" width="0.2032" layer="51"/>
+<wire x1="14" y1="-5" x2="14" y2="-10" width="0.2032" layer="51"/>
+<wire x1="14" y1="-10" x2="14.39" y2="-10" width="0.2032" layer="51"/>
+<wire x1="14.39" y1="-10" x2="14.39" y2="-12.5" width="0.2032" layer="51"/>
+<wire x1="14.39" y1="-12.5" x2="13" y2="-12.5" width="0.2032" layer="51"/>
+<wire x1="13" y1="-12.5" x2="13" y2="-12" width="0.2032" layer="51"/>
+<wire x1="13" y1="-12" x2="3.5" y2="-12" width="0.2032" layer="51"/>
+<wire x1="3.5" y1="-12" x2="3.5" y2="-12.5" width="0.2032" layer="51"/>
+<wire x1="3.5" y1="-12.5" x2="0" y2="-12.5" width="0.2032" layer="51"/>
+<wire x1="0" y1="-12.5" x2="0" y2="2.5" width="0.2032" layer="51"/>
+<wire x1="3.94" y1="-0.95" x2="12.44" y2="-0.95" width="0.2032" layer="51"/>
+<wire x1="0" y1="-2" x2="0" y2="-9.5" width="0.2032" layer="21"/>
+<wire x1="1.3" y1="-12.5" x2="2.8" y2="-12.5" width="0.2032" layer="21"/>
+<wire x1="6" y1="-12" x2="10.4" y2="-12" width="0.2032" layer="21"/>
+<wire x1="14" y1="-9.6" x2="14" y2="-5" width="0.2032" layer="21"/>
+<wire x1="14" y1="-5" x2="14.4" y2="-5" width="0.2032" layer="21"/>
+<wire x1="14.4" y1="-5" x2="14.4" y2="-3.3" width="0.2032" layer="21"/>
+<wire x1="14.4" y1="1.7" x2="14.4" y2="2.5" width="0.2032" layer="21"/>
+<wire x1="14.4" y1="2.5" x2="12.5" y2="2.5" width="0.2032" layer="21"/>
+<wire x1="12.5" y1="2.5" x2="12.5" y2="2" width="0.2032" layer="21"/>
+<wire x1="4" y1="2" x2="4" y2="2.5" width="0.2032" layer="21"/>
+<wire x1="4" y1="2.5" x2="0" y2="2.5" width="0.2032" layer="21"/>
+<wire x1="0" y1="2.5" x2="0" y2="2" width="0.2032" layer="21"/>
+<text x="0" y="3" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1" y="-9" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="USB-MINI/MICRO">
@@ -8296,6 +8343,23 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="-2.54" y="5.842" size="1.778" layer="95">&gt;NAME</text>
 <pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+<symbol name="MICROSD">
+<pin name="NC" x="7.62" y="12.7" length="short" rot="R180"/>
+<pin name="!CS!" x="7.62" y="10.16" length="short" rot="R180"/>
+<pin name="DI" x="7.62" y="7.62" length="short" rot="R180"/>
+<pin name="VDD" x="7.62" y="5.08" length="short" rot="R180"/>
+<pin name="CLK" x="7.62" y="2.54" length="short" rot="R180"/>
+<pin name="VSS" x="7.62" y="0" length="short" rot="R180"/>
+<pin name="DO" x="7.62" y="-2.54" length="short" rot="R180"/>
+<pin name="!IRQ!" x="7.62" y="-5.08" length="short" rot="R180"/>
+<wire x1="-7.62" y1="15.24" x2="5.08" y2="15.24" width="0.254" layer="94"/>
+<wire x1="5.08" y1="15.24" x2="5.08" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-17.78" x2="-7.62" y2="-17.78" width="0.254" layer="94"/>
+<text x="-3.81" y="-3.81" size="2.54" layer="94" rot="R90">MICROSD</text>
+<pin name="CRD_DETH" x="7.62" y="-10.16" visible="pin" length="short" rot="R180"/>
+<pin name="CRD_DETL" x="7.62" y="-12.7" visible="pin" length="short" rot="R180"/>
+<pin name="SHIELD" x="7.62" y="-15.24" visible="pin" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -8535,6 +8599,34 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MICRO-SD" prefix="JP">
+<description>&lt;b&gt;MicroSD Memory Card Connector, Ultra Low-Profile, Push-Push Type, 1.45mm Height, Anti-card fly-out&lt;/b&gt;
+
+&lt;p&gt;Datasheet: &lt;a href="http://www.molex.com/pdm_docs/sd/5031821853_sd.pdf"&gt;5031821853&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="MICROSD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-5031821853" package="MICROSD-5031821853">
+<connects>
+<connect gate="G$1" pin="!CS!" pad="2"/>
+<connect gate="G$1" pin="!IRQ!" pad="8"/>
+<connect gate="G$1" pin="CLK" pad="5"/>
+<connect gate="G$1" pin="CRD_DETH" pad="CRD_DETH"/>
+<connect gate="G$1" pin="CRD_DETL" pad="CRD_DETL"/>
+<connect gate="G$1" pin="DI" pad="3"/>
+<connect gate="G$1" pin="DO" pad="7"/>
+<connect gate="G$1" pin="NC" pad="1"/>
+<connect gate="G$1" pin="SHIELD" pad="SHIELD1 SHIELD2 SHIELD3 SHIELD4 SHIELD5"/>
+<connect gate="G$1" pin="VDD" pad="4"/>
+<connect gate="G$1" pin="VSS" pad="6"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -9487,6 +9579,18 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <part name="U$12" library="hybridpi-aesthetics" deviceset="NC" device=""/>
 <part name="GND19" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY5" library="hybridpi-aesthetics" deviceset="3.0V" device=""/>
+<part name="JP2" library="hybridpi-connector" deviceset="MICRO-SD" device="-5031821853"/>
+<part name="C19" library="hybridpi-rcl" deviceset="C-EU" device="C0805" value="10uF">
+<attribute name="VENDOR" value="DIGI-KEY"/>
+<attribute name="VENDOR_PN" value="490-6470-1-ND"/>
+</part>
+<part name="C20" library="hybridpi-rcl" deviceset="C-EU" device="C0603" value="0.1uF"/>
+<part name="R10" library="hybridpi-rcl" deviceset="R-US_" device="R0603" value="2.2K"/>
+<part name="U$13" library="hybridpi-aesthetics" deviceset="NC" device=""/>
+<part name="U$14" library="hybridpi-aesthetics" deviceset="NC" device=""/>
+<part name="GND20" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="GND21" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="SUPPLY6" library="hybridpi-aesthetics" deviceset="3.0V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9604,6 +9708,18 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <instance part="U$12" gate="G$1" x="193.04" y="116.84"/>
 <instance part="GND19" gate="1" x="154.94" y="104.14"/>
 <instance part="SUPPLY5" gate="G$1" x="154.94" y="132.08"/>
+<instance part="JP2" gate="G$1" x="17.78" y="86.36"/>
+<instance part="C19" gate="G$1" x="66.04" y="83.82" rot="MR180">
+<attribute name="VENDOR" x="66.04" y="83.82" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="VENDOR_PN" x="66.04" y="83.82" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C20" gate="G$1" x="55.88" y="83.82" rot="MR180"/>
+<instance part="R10" gate="G$1" x="45.72" y="83.82" rot="R270"/>
+<instance part="U$13" gate="G$1" x="25.4" y="99.06"/>
+<instance part="U$14" gate="G$1" x="30.48" y="81.28"/>
+<instance part="GND20" gate="1" x="27.94" y="66.04"/>
+<instance part="GND21" gate="1" x="66.04" y="73.66"/>
+<instance part="SUPPLY6" gate="G$1" x="66.04" y="93.98"/>
 </instances>
 <busses>
 </busses>
@@ -9789,6 +9905,30 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <wire x1="154.94" y1="109.22" x2="154.94" y2="106.68" width="0.1524" layer="91"/>
 <junction x="154.94" y="109.22"/>
 </segment>
+<segment>
+<pinref part="JP2" gate="G$1" pin="CRD_DETL"/>
+<wire x1="25.4" y1="73.66" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="73.66" x2="27.94" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="G$1" pin="SHIELD"/>
+<wire x1="27.94" y1="71.12" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="71.12" x2="27.94" y2="71.12" width="0.1524" layer="91"/>
+<junction x="27.94" y="71.12"/>
+<pinref part="JP2" gate="G$1" pin="VSS"/>
+<wire x1="25.4" y1="86.36" x2="27.94" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="86.36" x2="27.94" y2="73.66" width="0.1524" layer="91"/>
+<junction x="27.94" y="73.66"/>
+<pinref part="GND20" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C19" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="81.28" x2="66.04" y2="78.74" width="0.1524" layer="91"/>
+<pinref part="C20" gate="G$1" pin="1"/>
+<wire x1="66.04" y1="78.74" x2="55.88" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="78.74" x2="55.88" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="GND21" gate="1" pin="GND"/>
+<wire x1="66.04" y1="78.74" x2="66.04" y2="76.2" width="0.1524" layer="91"/>
+<junction x="66.04" y="78.74"/>
+</segment>
 </net>
 <net name="3V_EN" class="0">
 <segment>
@@ -9926,6 +10066,23 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="SUPPLY5" gate="G$1" pin="3.0V"/>
 <wire x1="154.94" y1="132.08" x2="154.94" y2="129.54" width="0.1524" layer="91"/>
 <junction x="154.94" y="129.54"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="G$1" pin="VDD"/>
+<pinref part="R10" gate="G$1" pin="1"/>
+<wire x1="25.4" y1="91.44" x2="45.72" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="91.44" x2="45.72" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="C20" gate="G$1" pin="2"/>
+<wire x1="45.72" y1="91.44" x2="55.88" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="91.44" x2="55.88" y2="88.9" width="0.1524" layer="91"/>
+<junction x="45.72" y="91.44"/>
+<pinref part="C19" gate="G$1" pin="2"/>
+<wire x1="55.88" y1="91.44" x2="66.04" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="91.44" x2="66.04" y2="88.9" width="0.1524" layer="91"/>
+<junction x="55.88" y="91.44"/>
+<pinref part="SUPPLY6" gate="G$1" pin="3.0V"/>
+<wire x1="66.04" y1="93.98" x2="66.04" y2="91.44" width="0.1524" layer="91"/>
+<junction x="66.04" y="91.44"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -10327,6 +10484,58 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="U6" gate="G$1" pin="SDA"/>
 <wire x1="193.04" y1="121.92" x2="195.58" y2="121.92" width="0.1524" layer="91"/>
 <label x="195.58" y="121.92" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="NC"/>
+<pinref part="U$13" gate="G$1" pin="NC"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="!IRQ!"/>
+<pinref part="U$14" gate="G$1" pin="NC"/>
+<wire x1="30.48" y1="81.28" x2="25.4" y2="81.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="SD_!CS!" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="!CS!"/>
+<wire x1="25.4" y1="96.52" x2="30.48" y2="96.52" width="0.1524" layer="91"/>
+<label x="30.48" y="96.52" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SD_MOSI" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="DI"/>
+<wire x1="25.4" y1="93.98" x2="30.48" y2="93.98" width="0.1524" layer="91"/>
+<label x="30.48" y="93.98" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SD_SCLK" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="CLK"/>
+<wire x1="25.4" y1="88.9" x2="30.48" y2="88.9" width="0.1524" layer="91"/>
+<label x="30.48" y="88.9" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SD_MISO" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="DO"/>
+<wire x1="25.4" y1="83.82" x2="30.48" y2="83.82" width="0.1524" layer="91"/>
+<label x="30.48" y="83.82" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="SD_CRD_DET" class="0">
+<segment>
+<pinref part="JP2" gate="G$1" pin="CRD_DETH"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="76.2" x2="45.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="76.2" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="76.2" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<junction x="45.72" y="76.2"/>
+<label x="48.26" y="76.2" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
