@@ -7,10 +7,21 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-aesthetics.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-connector.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-digitalic.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-discrete-semi.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-electromechanical.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-opto.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-poweric.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-rcl.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-rf.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi-sensor.lbr"
+UsedLibrary="/home/agoessling/Documents/hybridpi/library/eagle/hybridpi.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="854 24 1871 745"
+Loc="847 24 1864 745"
 State=2
 Number=0
 

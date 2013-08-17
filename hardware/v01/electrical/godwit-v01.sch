@@ -9,6 +9,20 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -10049,6 +10063,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <part name="R14" library="hybridpi-rcl" deviceset="R-US_" device="R0603" value="100K"/>
 <part name="R15" library="hybridpi-rcl" deviceset="R-US_" device="R0603" value="100K"/>
 <part name="SUPPLY9" library="hybridpi-aesthetics" deviceset="3.0V" device=""/>
+<part name="R16" library="hybridpi-rcl" deviceset="R-US_" device="R0603"/>
+<part name="R17" library="hybridpi-rcl" deviceset="R-US_" device="R0603"/>
+<part name="GND26" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10257,6 +10274,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <instance part="R14" gate="G$1" x="233.68" y="45.72" rot="R90"/>
 <instance part="R15" gate="G$1" x="246.38" y="45.72" rot="R90"/>
 <instance part="SUPPLY9" gate="G$1" x="208.28" y="55.88"/>
+<instance part="R16" gate="G$1" x="297.18" y="116.84" rot="R90"/>
+<instance part="R17" gate="G$1" x="297.18" y="101.6" rot="R90"/>
+<instance part="GND26" gate="1" x="297.18" y="91.44"/>
 </instances>
 <busses>
 <bus name="LCD_D[0..7]">
@@ -10554,6 +10574,11 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="S4" gate="S" pin="2"/>
 <wire x1="236.22" y1="25.4" x2="236.22" y2="22.86" width="0.1524" layer="91"/>
 <junction x="236.22" y="22.86"/>
+</segment>
+<segment>
+<pinref part="R17" gate="G$1" pin="1"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+<wire x1="297.18" y1="96.52" x2="297.18" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3V_EN" class="0">
@@ -10883,6 +10908,11 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <wire x1="175.26" y1="226.06" x2="175.26" y2="223.52" width="0.1524" layer="91"/>
 <label x="175.26" y="226.06" size="1.27" layer="95" rot="R90" xref="yes"/>
 <pinref part="R1" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="R16" gate="G$1" pin="2"/>
+<wire x1="297.18" y1="121.92" x2="297.18" y2="124.46" width="0.1524" layer="91"/>
+<label x="297.18" y="124.46" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
 <net name="CHRG_SCL" class="0">
@@ -11664,6 +11694,13 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <pinref part="U7" gate="G$1" pin="PA16"/>
 <wire x1="246.38" y1="111.76" x2="248.92" y2="111.76" width="0.1524" layer="91"/>
 <label x="248.92" y="111.76" size="1.27" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="N$46" class="0">
+<segment>
+<pinref part="R16" gate="G$1" pin="1"/>
+<pinref part="R17" gate="G$1" pin="2"/>
+<wire x1="297.18" y1="111.76" x2="297.18" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
