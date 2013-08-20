@@ -8375,6 +8375,7 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <wire x1="0" y1="2.5" x2="0" y2="2" width="0.2032" layer="21"/>
 <text x="0" y="3" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1" y="-9" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
+<circle x="12" y="2" radius="0.1" width="0.2032" layer="21"/>
 </package>
 <package name="128240D">
 <smd name="19" x="0.25" y="0" dx="0.3" dy="1.25" layer="1" roundness="100"/>
@@ -8763,6 +8764,7 @@ Keying posts into board</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="EAGLEUP" value="USB-MINIB" constant="no"/>
 <attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
 <attribute name="VENDOR_PN" value="ED2992CT-ND" constant="no"/>
 </technology>
@@ -8982,7 +8984,9 @@ Keying posts into board</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="JST-PH-2-RA" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -9010,12 +9014,19 @@ Keying posts into board</description>
 <connect gate="G$1" pin="VSS" pad="6"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="MICROSD-5031821853" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
 <deviceset name="128240D">
+<description>&lt;b&gt;ZIF Connector for 128x240 Monochrome Graphic LCD&lt;/b&gt;
+
+&lt;p&gt;Datasheet: &lt;a href="https://www.displaytech-us.com/sites/default/files/display-data-sheet/128240D%20series-v12.pdf"&gt;128249D&lt;/a&gt;
+
+&lt;p&gt;Connector: &lt;a href="https://www.displaytech-us.com/sites/default/files/zif-connector/SEAComp%200.5mm%20ZIF%20Connector%20for%20LCD_1.pdf"&gt;SEA8056-36&lt;/a&gt;</description>
 <gates>
 <gate name="G$1" symbol="128240D" x="0" y="0"/>
 </gates>
@@ -9061,7 +9072,9 @@ Keying posts into board</description>
 <connect gate="G$1" pin="XCS" pad="18"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="128240D_CON" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -9130,7 +9143,9 @@ Pogo pins- HW-11044</description>
 <connect gate="G$1" pin="6" pad="6"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="M03X2" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="NO_SILK" package="2X3-NS">
@@ -10221,7 +10236,9 @@ SMT- SWCH-08247</description>
 <connect gate="S" pin="2" pad="3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="TACTILE-PTH-FSMRA7JH" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
