@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2072,7 +2072,9 @@
 <connect gate="G$1" pin="VSEL" pad="11"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="WSON-12-3p1x3p1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -8307,8 +8309,8 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <wire x1="-1.5" y1="2.5" x2="4" y2="2.5" width="0.127" layer="21"/>
 </package>
 <package name="JST-PH-2-RA">
-<pad name="1" x="1" y="0" drill="0.7" shape="square"/>
-<pad name="2" x="-1" y="0" drill="0.7"/>
+<pad name="1" x="1" y="0" drill="0.9" shape="square"/>
+<pad name="2" x="-1" y="0" drill="0.9"/>
 <wire x1="-3" y1="-1.35" x2="-3" y2="6.25" width="0.127" layer="51"/>
 <wire x1="-3" y1="6.25" x2="3" y2="6.25" width="0.127" layer="51"/>
 <wire x1="3" y1="6.25" x2="3" y2="-1.35" width="0.127" layer="51"/>
@@ -9158,7 +9160,9 @@ Pogo pins- HW-11044</description>
 <connect gate="G$1" pin="6" pad="6"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="M03X2" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -9250,7 +9254,9 @@ Pogo pins- HW-11044</description>
 <connect gate="G$1" pin="CR" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="LED-1p6x1p25" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -9666,7 +9672,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connect gate="G$1" pin="WAKEUP" pad="30"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="UC530" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -9753,7 +9761,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <text x="-2.5" y="-1" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="4.5" y="-2" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
 </package>
-<package name="DFN-10">
+<package name="DFN-10-2X2">
 <smd name="8" x="1.1" y="0" dx="1" dy="0.225" layer="1"/>
 <smd name="9" x="1.1" y="0.4" dx="1" dy="0.225" layer="1"/>
 <smd name="10" x="1.1" y="0.8" dx="1" dy="0.225" layer="1"/>
@@ -9824,7 +9832,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connect gate="G$1" pin="VDDIO" pad="3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="BMP180" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -9837,7 +9847,7 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <gate name="G$1" symbol="MAG3110" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="DFN-10">
+<device name="" package="DFN-10-2X2">
 <connects>
 <connect gate="G$1" pin="CAP-A" pad="1"/>
 <connect gate="G$1" pin="CAP-R" pad="4"/>
@@ -9849,7 +9859,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connect gate="G$1" pin="VDDIO" pad="8"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="DFN-10-2x2" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -10077,7 +10089,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connect gate="G$1" pin="VDDIO" pad="42 48"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="EAGLEUP" value="TQFP-48" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
