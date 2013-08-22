@@ -56,7 +56,7 @@
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -2253,10 +2253,15 @@ Please make sure your boards conform to these design rules.</description>
 </autorouter>
 <elements>
 <element name="L3" library="hybridpi" package="SRU5028" value="2.2uH" x="21.65" y="105.25" rot="R270"/>
-<element name="L1" library="hybridpi" package="SRU5028" value="1uH" x="18" y="122" rot="R90"/>
-<element name="U1" library="hybridpi" package="VQFN-24" value="BQ24251" x="19" y="116" rot="R180"/>
+<element name="L1" library="hybridpi" package="SRU5028" value="1.2uH" x="18" y="122" rot="R90"/>
+<element name="U1" library="hybridpi" package="VQFN-24" value="BQ24251" x="19" y="116" rot="R180">
+<attribute name="VENDOR" value="DIGI-KEY" x="19" y="116" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VENDOR_PN" value="296-36444-1-ND" x="19" y="116" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="U3" library="hybridpi" package="WSON-12" value="LM3668-3034" x="16.25" y="107" rot="R90">
 <attribute name="EAGLEUP" value="WSON-12-3p1x3p1" x="16.25" y="107" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="16.25" y="107" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR_PN" value="LM3668SD-3034/NOPBCT-ND" x="16.25" y="107" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C31" library="hybridpi-rcl" package="C0805" value="10uF" x="23" y="110">
 <attribute name="VENDOR" value="DIGI-KEY" x="91.58" y="61.74" size="1.778" layer="27" display="off"/>
@@ -2295,9 +2300,13 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R3" library="hybridpi-rcl" package="R0603" value="2.2K" x="5" y="122"/>
 <element name="D1" library="hybridpi-opto" package="LED-2-1.6X1.25" value="LED-RG-APT" x="2" y="121" rot="R90">
 <attribute name="EAGLEUP" value="LED-1p6x1p25" x="2" y="121" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="2" y="121" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR_PN" value="754-1146-1-ND" x="2" y="121" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="JP1" library="hybridpi-connector" package="JST-PH-2-RA" value="M02-JST-PH-2-RA" x="21" y="129" rot="R270">
 <attribute name="EAGLEUP" value="JST-PH-2-RA" x="21" y="129" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="21" y="129" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR_PN" value="455-1719-ND" x="21" y="129" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C22" library="hybridpi-rcl" package="C0603" value="2.2uF" x="23.1" y="116.8" rot="R90">
 <attribute name="VENDOR" value="DIGI-KEY" x="78.98" y="198.08" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2316,6 +2325,8 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R9" library="hybridpi-rcl" package="R0603" value="100K" x="7.45" y="105.85" rot="R90"/>
 <element name="U5" library="hybridpi-rf" package="UC530" value="UC530" x="36.25" y="7" rot="R270">
 <attribute name="EAGLEUP" value="UC530" x="36.25" y="7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR" value="MOUSER" x="36.25" y="7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR_PN" value="916-UC530" x="36.25" y="7" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C38" library="hybridpi-rcl" package="C0603" value="1uF" x="28.5" y="7">
 <attribute name="VOLTAGE" value="&gt;=10V" x="60.25" y="-70.47" size="1.778" layer="27" display="off"/>
@@ -2335,10 +2346,14 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R16" library="hybridpi-rcl" package="R0603" value="100K" x="21" y="42" rot="R180"/>
 <element name="U6" library="hybridpi-sensor" package="BMP180" value="BMP180" x="4" y="41">
 <attribute name="EAGLEUP" value="BMP180" x="4" y="41" size="1.778" layer="27" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="4" y="41" size="1.778" layer="27" display="off"/>
+<attribute name="VENDOR_PN" value="828-1027-1-ND" x="4" y="41" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C45" library="hybridpi-rcl" package="C0603" value="0.1uF" x="4" y="45"/>
 <element name="U7" library="hybridpi-sensor" package="DFN-10-2X2" value="MAG3110" x="11" y="41" rot="R270">
 <attribute name="EAGLEUP" value="DFN-10-2x2" x="11" y="41" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="11" y="41" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR_PN" value="MAG3110FCR1CT-ND" x="11" y="41" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C41" library="hybridpi-rcl" package="C0603" value="0.1uF" x="11" y="44" rot="R180"/>
 <element name="C40" library="hybridpi-rcl" package="C0603" value="1uF" x="11" y="45.5">
@@ -2348,6 +2363,8 @@ Please make sure your boards conform to these design rules.</description>
 <element name="C44" library="hybridpi-rcl" package="C0603" value="0.1uF" x="9" y="41" rot="R270"/>
 <element name="JP2" library="hybridpi-connector" package="MICROSD-5031821853" value="MICRO-SD-5031821853" x="2" y="50" rot="R90">
 <attribute name="EAGLEUP" value="MICROSD-5031821853" x="2" y="50" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="2" y="50" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR_PN" value="WM9750CT-ND" x="2" y="50" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C13" library="hybridpi-rcl" package="C0805" value="10uF" x="17.5" y="59" rot="R270">
 <attribute name="VENDOR" value="DIGI-KEY" x="-38.38" y="36.14" size="1.778" layer="27" rot="R270" display="off"/>
@@ -2357,6 +2374,8 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R2" library="hybridpi-rcl" package="R0603" value="100K" x="2" y="66"/>
 <element name="JP4" library="hybridpi-connector" package="128240D" value="128240D" x="22" y="89" rot="R90">
 <attribute name="EAGLEUP" value="128240D_CON" x="22" y="89" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR" value="MOUSER" x="22" y="89" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VENDOR_PN" value="758-SEA8056-36" x="22" y="89" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C9" library="hybridpi-rcl" package="C0603" value="1uF" x="17.5" y="93.9" rot="R90">
 <attribute name="VENDOR" value="DIGI-KEY" x="94.97" y="135.81" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2410,8 +2429,9 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VENDOR" value="DIGI-KEY" x="50.75" y="4.95" size="1.778" layer="27" display="off"/>
 <attribute name="VENDOR_PN" value="587-1248-1-ND" x="50.75" y="4.95" size="1.778" layer="27" display="off"/>
 </element>
-<element name="U2" library="hybridpi-digitalic" package="TQFP48" value="ATUCL4U-TQFP48" x="14" y="82" rot="R180">
-<attribute name="EAGLEUP" value="TQFP-48" x="14" y="82" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="U2" library="hybridpi-digitalic" package="TQFP48" value="ATUC128L4U-TQFP48" x="14" y="82" rot="R180">
+<attribute name="VENDOR" value="DIGI-KEY" x="14" y="82" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VENDOR_PN" value="ATUC128L4U-AUT-ND " x="14" y="82" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R17" library="hybridpi-rcl" package="R0603" value="100K" x="5" y="71" rot="R180"/>
 <element name="R18" library="hybridpi-rcl" package="R0603" value="100K" x="5" y="81" rot="R180"/>
@@ -2421,6 +2441,8 @@ Please make sure your boards conform to these design rules.</description>
 <element name="R15" library="hybridpi-rcl" package="R0603" value="41.2K" x="22.5" y="69.5" rot="R90"/>
 <element name="JP6" library="hybridpi-connector" package="JST-PH-2-RA" value="M02-JST-PH-2-RA" x="21" y="59" rot="R270">
 <attribute name="EAGLEUP" value="JST-PH-2-RA" x="21" y="59" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR" value="DIGI-KEY" x="21" y="59" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VENDOR_PN" value="455-1719-ND" x="21" y="59" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="S1" library="hybridpi-electromechanical" package="FSMRA" value="FSMRA7JH" x="14.45" y="130.75" rot="R180">
 <attribute name="VENDOR" value="DIGI-KEY" x="-63.02" y="159.96" size="1.778" layer="27" rot="R180" display="off"/>

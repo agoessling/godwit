@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -2044,7 +2044,10 @@
 <connect gate="G$1" pin="VDPM" pad="23"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="296-36444-1-ND" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -2074,6 +2077,8 @@
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="WSON-12-3p1x3p1" constant="no"/>
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="LM3668SD-3034/NOPBCT-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -8992,6 +8997,8 @@ Keying posts into board</description>
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="JST-PH-2-RA" constant="no"/>
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="455-1719-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9022,6 +9029,8 @@ Keying posts into board</description>
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="MICROSD-5031821853" constant="no"/>
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="WM9750CT-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9080,6 +9089,8 @@ Keying posts into board</description>
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="128240D_CON" constant="no"/>
+<attribute name="VENDOR" value="MOUSER" constant="no"/>
+<attribute name="VENDOR_PN" value="758-SEA8056-36" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9260,6 +9271,8 @@ Pogo pins- HW-11044</description>
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="LED-1p6x1p25" constant="no"/>
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="754-1146-1-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9678,6 +9691,8 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="UC530" constant="no"/>
+<attribute name="VENDOR" value="MOUSER" constant="no"/>
+<attribute name="VENDOR_PN" value="916-UC530" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9838,6 +9853,8 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="BMP180" constant="no"/>
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="828-1027-1-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -9865,6 +9882,8 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <technologies>
 <technology name="">
 <attribute name="EAGLEUP" value="DFN-10-2x2" constant="no"/>
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="MAG3110FCR1CT-ND" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -10093,8 +10112,9 @@ These are standard reverse protection diodes and small signal diodes. SMA packag
 <connect gate="G$1" pin="VDDIO" pad="42 48"/>
 </connects>
 <technologies>
-<technology name="">
-<attribute name="EAGLEUP" value="TQFP-48" constant="no"/>
+<technology name="128">
+<attribute name="VENDOR" value="DIGI-KEY" constant="no"/>
+<attribute name="VENDOR_PN" value="ATUC128L4U-AUT-ND " constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -10395,7 +10415,7 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 </classes>
 <parts>
 <part name="L3" library="hybridpi" deviceset="INDUCTOR" device="-SRU5028" value="2.2uH"/>
-<part name="L1" library="hybridpi" deviceset="INDUCTOR" device="-SRU5028" value="1uH"/>
+<part name="L1" library="hybridpi" deviceset="INDUCTOR" device="-SRU5028" value="1.2uH"/>
 <part name="U1" library="hybridpi" deviceset="BQ24251" device=""/>
 <part name="U3" library="hybridpi" deviceset="LM3668" device="-3034"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -10578,7 +10598,7 @@ Standard SMD solder jumper. Used to automate production. Two varients : Normally
 <part name="SUPPLY7" library="hybridpi-aesthetics" deviceset="3.0V" device=""/>
 <part name="SUPPLY8" library="hybridpi-aesthetics" deviceset="3.0V" device=""/>
 <part name="GND24" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
-<part name="U2" library="hybridpi-digitalic" deviceset="ATUC*L" device="4U-TQFP48"/>
+<part name="U2" library="hybridpi-digitalic" deviceset="ATUC*L" device="4U-TQFP48" technology="128"/>
 <part name="GND25" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R17" library="hybridpi-rcl" deviceset="R-US_" device="R0603" value="100K"/>
 <part name="R18" library="hybridpi-rcl" deviceset="R-US_" device="R0603" value="100K"/>
