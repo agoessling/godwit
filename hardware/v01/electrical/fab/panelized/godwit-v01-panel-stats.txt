@@ -1,0 +1,435 @@
+Data Exported from: /home/agoessling/godwit/hardware/v01/electrical/godwit-v01-panel.brd
+with: /home/agoessling/eagle-6.4.0/ulp/statistic-brd.ulp Version 1.3.8
+at: 8/21/13 1:11 AM
+EAGLE Version 6.4.0 Copyright (c) 1988-2013 CadSoft
+
+all Values in mm
+max. Board length (Layer 20)
+X = 72.61
+Y = 171.45
+Outline contour = 793.65
+
+used layers 2
+
+ 1 Top
+16 Bottom
+_________________________
+
+2604  	 Wire(s) incl. Arc(s)
+12    	 Polygon(s)
+_________________________
+732   	 SMD(s) top
+0     	 SMD(s) bottom
+===================
+732   	 SMD(s) total
+
+60    	 PAD(s)
+_________________________
+454   	 Via
+10    	 Hole
+===================
+524   	 Drills total
+_________________________
+734	 tCream
+0	 bCream
+_________________________
+Routing Info: 
+200   	 Signal(s) 
+792   	 PAD/SMD total
+===================
+748   	 PAD/SMD on Signal
+_________________________
+Packages used area:
+~ 4095.05 mm² (0.410 dm²)
+_________________________
+
+
+============================
+
+============================
+196 Elements: 0 locked / 196 unlocked
+0 Testpoints (TP)
+
+----------------------------
+LAYER
+Nb.	Name	Used
+  1	Top	1
+  2	Route2	0
+  3	Route3	0
+  4	Route4	0
+  5	Route5	0
+  6	Route6	0
+  7	Route7	0
+  8	Route8	0
+  9	Route9	0
+ 10	Route10	0
+ 11	Route11	0
+ 12	Route12	0
+ 13	Route13	0
+ 14	Route14	0
+ 15	Route15	0
+ 16	Bottom	1
+ 17	Pads	1
+ 18	Vias	1
+ 19	Unrouted	0
+ 20	Dimension	1
+ 21	tPlace	1
+ 22	bPlace	0
+ 23	tOrigins	1
+ 24	bOrigins	0
+ 25	tNames	1
+ 26	bNames	0
+ 27	tValues	1
+ 28	bValues	0
+ 29	tStop	1
+ 30	bStop	1
+ 31	tCream	1
+ 32	bCream	0
+ 33	tFinish	0
+ 34	bFinish	0
+ 35	tGlue	1
+ 36	bGlue	0
+ 37	tTest	0
+ 38	bTest	0
+ 39	tKeepout	1
+ 40	bKeepout	0
+ 41	tRestrict	1
+ 42	bRestrict	1
+ 43	vRestrict	0
+ 44	Drills	1
+ 45	Holes	1
+ 46	Milling	0
+ 47	Measures	0
+ 48	Document	0
+ 49	Reference	0
+ 50	dxf	0
+ 51	tDocu	1
+ 52	bDocu	0
+ 53	tGND_GNDA	0
+ 54	bGND_GNDA	0
+ 56	wert	0
+100	Muster	0
+101	Patch_Top	0
+102	Vscore	0
+103	tMap	0
+104	Name	0
+105	tPlate	0
+106	bPlate	0
+107	Crop	0
+108	tplace-old	0
+109	ref-old	0
+116	Patch_BOT	0
+121	_tsilk	0
+122	_bsilk	0
+125	_tNames	0
+144	Drill_legend	0
+151	HeatSink	0
+199	Contour	0
+200	200bmp	0
+201	201bmp	0
+202	202bmp	0
+203	203bmp	0
+204	204bmp	0
+205	205bmp	0
+206	206bmp	0
+207	207bmp	0
+208	208bmp	0
+209	209bmp	0
+210	210bmp	0
+211	211bmp	0
+212	212bmp	0
+213	213bmp	0
+214	214bmp	0
+215	215bmp	0
+216	216bmp	0
+217	217bmp	0
+218	218bmp	0
+219	219bmp	0
+220	220bmp	0
+221	221bmp	0
+223	223bmp	0
+224	224bmp	0
+250	Descript	0
+251	SMDround	0
+254	cooling	0
+
+----------------------------
+CLASS
+# 	Name	min. Width	Clearance	min. Drill	Used
+0	default	0.0000 	0.0000 	0.0000 	200 
+
+----------------------------
+WIDTH
+WIRE	Q.
+0.1524 	1594
+0.3810 	266 
+0.2032 	224 
+0.2540 	388 
+0.5080 	72  
+0.6858 	16  
+0.7620 	22  
+0.2794 	8   
+0.7112 	4   
+0.4064 	2   
+
+ARC	Q.
+0.1524 	6   
+0.2540 	2   
+ * Wire width are saved in 0.2 micron resolution.
+
+POLY. width	Q.
+0.1524 	12  
+
+POLY. Isol.	Q.
+0.0000 	12  
+
+Polygon
+Type	Name	Layer	Rank	Width
+Signal	3.0V	1	3	0.152
+Signal	3.0V1	1	3	0.152
+Signal	GND	16	6	0.152
+Signal	GND	1	6	0.152
+Signal	GND1	16	6	0.152
+Signal	GND1	1	6	0.152
+Signal	N$1	1	2	0.152
+Signal	N$2	1	1	0.152
+Signal	N$5	1	1	0.152
+Signal	N$58	1	2	0.152
+Signal	N$59	1	1	0.152
+Signal	N$61	1	1	0.152
+ * Wire width are saved in 0.2 micron resolution.
+
+----------------------------
+CIRCLE (width)	Q.
+
+CIRCLE diam.	Q.
+
+----------------------------
+TEXT (w)	Q.
+0.2032 	2   
+
+TEXT (s)	Q.
+1.2700 	2   
+
+----------------------------
+SMD x	SMD y	Roundn.	Q.
+1.3000 	1.5000 	0%	20  
+1.1000 	1.0000 	0%	180 
+0.8000 	0.4000 	0%	8   
+0.7000 	0.5000 	0%	8   
+0.5000 	2.3000 	0%	10  
+2.0000 	2.5000 	0%	8   
+0.8000 	1.2400 	0%	16  
+1.1600 	1.2500 	0%	2   
+1.1600 	1.2000 	0%	2   
+0.9500 	2.5000 	0%	2   
+1.1500 	2.2000 	0%	4   
+1.5000 	1.1500 	0%	4   
+1.1000 	2.0000 	0%	16  
+1.0000 	1.1000 	0%	92  
+0.6350 	1.2700 	0%	4   
+0.3000 	1.2500 	100%	72  
+1.8000 	1.5000 	40%	4   
+0.2800 	0.7100 	0%	48  
+2.7000 	2.7000 	0%	2   
+0.2000 	0.6000 	0%	24  
+2.2000 	1.6800 	0%	2   
+0.7000 	1.5000 	0%	58  
+1.0000 	1.5000 	0%	4   
+0.6300 	0.8000 	0%	12  
+0.9000 	1.5000 	0%	14  
+1.0000 	0.2250 	0%	20  
+0.3000 	1.4000 	0%	96  
+
+PAD tDiam	Q.
+1.3500 	8   
+1.8796 	12  
+1.6764 	20  
+2.1844 	20  
+
+PAD bDiam	Q.
+1.3500 	8   
+1.8796 	12  
+1.6764 	20  
+2.1844 	20  
+
+PAD tRestring	Q.
+0.2250 	8   
+0.4318 	12  
+0.3382 	20  
+0.4422 	20  
+
+PAD bRestring	Q.
+0.2250 	8   
+0.4318 	12  
+0.3382 	20  
+0.4422 	20  
+
+PAD iDiam	Q.
+1.3500 	8   
+1.5240 	12  
+1.5000 	20  
+1.9500 	20  
+
+PAD iRestring	Q.
+0.2250 	8   
+0.2540 	12  
+0.2500 	20  
+0.3250 	20  
+
+VIA Outer-Diam	Q.
+0.6858 	454 
+
+VIA Outer-Restring 	Q.
+0.1778 	454 
+
+VIA Inner-Diam.	Q.
+0.6858 	454 
+
+VIA Inner-Restring	Q.
+0.1778 	454 
+
+VIA drill	Q.
+0.3302 	454 
+
+VIA Stack	Q.
+01-16	454 
+01-16-PAD	60  
+
+PAD drill	Q.
+0.9000 	8   
+1.0160 	12  
+1.0000 	20  
+1.3000 	20  
+
+----------------------------
+HOLE drill	Q.
+3.2639 	6   
+1.0000 	4   
+
+RACK
+T01   0.3
+T02   0.9
+T03   1.0
+T04   1.3
+T05   3.3
+
+----------------------------
+LIBRARY	Q.
+hybridpi-rcl	140 
+hybridpi-opto	2   
+hybridpi-discrete-semi	4   
+hybridpi-connector	12  
+hybridpi	14  
+hybridpi-electromechanical	10  
+hybridpi-passive	2   
+hybridpi-aesthetics	2   
+hybridpi-rf	2   
+hybridpi-poweric	2   
+hybridpi-sensor	4   
+hybridpi-digitalic	2   
+
+PACKAGE	Q.
+C0805	10  
+C0603	84  
+LED-2-1.6X1.25	2   
+SOD523	4   
+USB-MINIB-M26FTR	2   
+JST-PH-2-RA	4   
+MICROSD-5031821853	2   
+2X3-NS	2   
+SRU5028	4   
+0603	6   
+R0603	46  
+FSMRA	10  
+SJ_2S	2   
+128240D	2   
+LOGO_MED_SLK	2   
+VQFN-24	2   
+WSON-12	2   
+UC530	2   
+SOT23-6	2   
+BMP180	2   
+DFN-10-2X2	2   
+TQFP48	2   
+
+VALUE	PAC	Q.	Top	Bot
+10uF	C0805	4	4	0
+0.1uF	C0603	36	36	0
+22uF	C0805	6	6	0
+33nF	C0603	6	6	0
+1uF	C0603	32	32	0
+2.2uF	C0603	6	6	0
+4.7uF	C0603	2	2	0
+DNP	C0603	2	2	0
+LED-RG-APT	LED-2-1.6X1.25	2	2	0
+~/-empty-/~D2	SOD523	1	1	0
+~/-empty-/~D3	SOD523	1	1	0
+~/-empty-/~D5	SOD523	1	1	0
+~/-empty-/~D6	SOD523	1	1	0
+USB-MINIB-M26FTR	USB-MINIB-M26FTR	2	2	0
+M02-JST-PH-2-RA	JST-PH-2-RA	4	4	0
+MICRO-SD-5031821853	MICROSD-5031821853	2	2	0
+~/-empty-/~JP4	2X3-NS	1	1	0
+~/-empty-/~JP8	2X3-NS	1	1	0
+2.2uH	SRU5028	2	2	0
+1uH	SRU5028	2	2	0
+2.5K	0603	6	6	0
+100K	R0603	20	20	0
+2.2K	R0603	6	6	0
+220R	R0603	6	6	0
+59K	R0603	2	2	0
+41.2K	R0603	2	2	0
+10K	R0603	10	10	0
+~/-empty-/~S1	FSMRA	1	1	0
+~/-empty-/~S2	FSMRA	1	1	0
+~/-empty-/~S3	FSMRA	1	1	0
+~/-empty-/~S4	FSMRA	1	1	0
+~/-empty-/~S5	FSMRA	1	1	0
+~/-empty-/~S6	FSMRA	1	1	0
+~/-empty-/~S7	FSMRA	1	1	0
+~/-empty-/~S8	FSMRA	1	1	0
+~/-empty-/~S9	FSMRA	1	1	0
+~/-empty-/~S10	FSMRA	1	1	0
+SOLDERJUMPERNC	SJ_2S	2	2	0
+128240D	128240D	2	2	0
+~/-empty-/~U$2	LOGO_MED_SLK	1	1	0
+~/-empty-/~U$21	LOGO_MED_SLK	1	1	0
+BQ24251	VQFN-24	2	2	0
+LM3668-3034	WSON-12	2	2	0
+UC530	UC530	2	2	0
+AAT4280A	SOT23-6	2	2	0
+BMP180	BMP180	2	2	0
+MAG3110	DFN-10-2X2	2	2	0
+ATUCL4U-TQFP48	TQFP48	2	2	0
+
+----------------------------
+RECT x	RECT y	Q.
+0 RECT (copper)
+
+----------------------------
+RECT Layer	Q.
+
+----------------------------
+TEXT (s)	Q.
+1.2700 	2   
+1 TEXT size (copper)
+
+TEXT (w)	Q.
+0.2032 	2   
+1 TEXT wire width (copper)
+
+TEXT 	Q.
+2.5400 	2   
+1.0160 	34  
+1.2700 	332 
+0.4064 	20  
+0.8128 	4   
+5 TEXT size (place)
+0.0762 	16  
+6 TEXT wire width (place)
+
+CIRCLE diam.	Q.
+0 CIRCLE (copper)
+
+End report

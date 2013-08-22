@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -4677,6 +4677,45 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="9.795" y1="84.3" x2="9.809" y2="84.286" width="0.1524" layer="1"/>
 </signal>
 </signals>
+<errors>
+<approved hash="5,1,205134cadc4d962e"/>
+<approved hash="5,1,d80ffb0f54a822a4"/>
+<approved hash="5,1,756a5f1e0b79010a"/>
+<approved hash="5,1,faad62815f5b3770"/>
+<approved hash="5,1,e08d07b69b3a4f3d"/>
+<approved hash="5,1,fd3a8190af36c1a5"/>
+<approved hash="19,1,f81249682fb95f86"/>
+<approved hash="5,1,5ce77ebe60a85adc"/>
+<approved hash="19,1,c75383053aef898b"/>
+<approved hash="5,1,5a8452034f454fc9"/>
+<approved hash="5,1,cb079e734f261480"/>
+<approved hash="5,1,7b14c6e6cd77d34e"/>
+<approved hash="5,1,989e0637831416f6"/>
+<approved hash="5,1,d8e777def5061041"/>
+<approved hash="19,1,d29c0bb3bb35e679"/>
+<approved hash="19,1,437a34efd4766296"/>
+<approved hash="5,1,6fe50975800d674b"/>
+<approved hash="5,1,50fb849c04895e79"/>
+<approved hash="5,1,1d4d8e0d22571488"/>
+<approved hash="5,1,2059c29cd6ed899c"/>
+<approved hash="5,1,41f101bbd62e2e38"/>
+<approved hash="19,1,388018b41e163e22"/>
+<approved hash="19,1,b3d84bec481db029"/>
+<approved hash="5,1,bad901e99e578437"/>
+<approved hash="5,1,3ca530e84eeddb42"/>
+<approved hash="19,1,35d42de02c3c3408"/>
+<approved hash="19,1,34542c602f9c37a8"/>
+<approved hash="19,1,b458446c47afb79b"/>
+<approved hash="19,1,b5d845ec440fb43b"/>
+<approved hash="19,1,f17012568e5b94aa"/>
+<approved hash="5,1,69513610b8cbefc7"/>
+<approved hash="5,1,558f994634818fdb"/>
+<approved hash="5,1,eeba09bec698000b"/>
+<approved hash="5,1,286b95591643515a"/>
+<approved hash="5,1,fd0cf431ed52769f"/>
+<approved hash="19,1,096aa81fecf82a3a"/>
+<approved hash="5,1,e3f286489101784d"/>
+</errors>
 </board>
 </drawing>
 </eagle>
