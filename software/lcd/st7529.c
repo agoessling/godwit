@@ -109,3 +109,10 @@ static inline uint8_t st7529_read_data(void){
     return data;
 }
 
+void st7529_put_5x7_text(uint8_t x,
+                         uint8_t y,
+                         unsigned char *str,
+                         uint32_t len){
+
+
+}

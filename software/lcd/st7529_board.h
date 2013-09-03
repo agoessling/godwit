@@ -53,6 +53,8 @@
  * st7529_WR_DIR_OUT()
  * st7529_WR_SET()
  * st7529_WR_CLR()
+ * st7529_D07_DIR_IN()
+ * st7529_D07_DIR_OUT()
  * st7529_D07_WRITE(uint8_t)
  * uint8_t st7529_D07_READ()
  *
@@ -62,6 +64,8 @@
 
 #include "cycle_counter.h"
 #include "gpio.h"
+
+#include "st7529_board_lut.h"
 
 /***** SYSTEM PARAMETERS ****/
 #define ST7529_FCPU     25000000    // 25MHz
@@ -144,6 +148,16 @@
                                     ST7529_WR_PIN)
 #define st7529_WR_SET()         gpio_local_set_gpio_pin(ST7529_WR_PIN)
 #define st7529_WR_CLR()         gpio_local_clr_gpio_pin(ST7529_WR_PIN)
+
+#define st7529_D07_DIR_IN()     AVR32_GPIO_LOCAL.port[0].oderc\
+                                    =ST7529_D07_PORTA_PINS;\
+                                AVR32_GPIO_LOCAL.port[1].oderc\
+                                    =ST7529_D07_PORTB_PINS
+
+#define st7529_D07_DIR_OUT()    AVR32_GPIO_LOCAL.port[0].oders\
+                                    =ST7529_D07_PORTA_PINS;\
+                                AVR32_GPIO_LOCAL.port[1].oders\
+                                    =ST7529_D07_PORTB_PINS
 
 inline static void st7529_D07_WRITE(uint8_t data){
     // Clear Old Values
