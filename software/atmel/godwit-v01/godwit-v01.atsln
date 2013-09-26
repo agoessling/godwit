@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "godwit-v01", "godwit-v01\godwit-v01.cproj", "{878E1204-BE79-4E5B-920E-56F200E1BB2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{878E1204-BE79-4E5B-920E-56F200E1BB2E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{878E1204-BE79-4E5B-920E-56F200E1BB2E}.Debug|AVR.Build.0 = Debug|AVR
+		{878E1204-BE79-4E5B-920E-56F200E1BB2E}.Release|AVR.ActiveCfg = Release|AVR
+		{878E1204-BE79-4E5B-920E-56F200E1BB2E}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
