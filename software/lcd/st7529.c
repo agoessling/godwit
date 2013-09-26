@@ -109,10 +109,112 @@ static inline uint8_t st7529_read_data(void){
     return data;
 }
 
+// This function draws 5x7 pixel text at the specified location
+// With vertical orientation
+// x: x lower left coordinate
+// y: y lower left coordinate (must be a start block [0-84])
+// str: character string to display (doesn't have to be null terminated)
+// len: length of character string (not including null termination)
+// NOTES:
+// To avoid reads, this function assumes two rows of cleared pixels above
+// each character.
+
 void st7529_put_5x7_text(uint8_t x,
                          uint8_t y,
                          unsigned char *str,
                          uint32_t len){
 
+    ST7529_CS_CLR();
 
+    // Set Start and End Lines/Columns
+    uint32_t end_line = x+6*len-1;
+    uint32_t end_col = y/3+2;
+
+    st7529_write_cmd(ST7529_LASET);
+    st7529_write_data(x);
+    st7529_write_data(end_line);
+
+    st7529_write_cmd(ST7529_CASET);
+    st7529_write_data(y/3);
+    st7529_write_data(end_col);
+
+    // Write Text Data
+    st7529_write_cmd(ST7529_RAMWR);
+
+    uint32_t icol;
+    uint32_t iline;  
+    uint8_t char_byte;
+
+    for(iline=0; iline<6*len; iline++){
+        if((iline % 6) == 5){
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+        }
+        else{
+            char_byte = st7529_5x7_font[*(str+iline/6)-0x20+iline%6];
+
+            if(char_byte & (1<<6))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+
+            if(char_byte & (1<<5))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+
+            if(char_byte & (1<<4))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+        }
+    }
+
+    for(iline=0; iline<6*len; iline++){
+        if((iline % 6) == 5){
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+        }
+        else{
+            char_byte = st7529_5x7_font[*(str+iline/6)-0x20+iline%6];
+
+            if(char_byte & (1<<3))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+
+            if(char_byte & (1<<2))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+
+            if(char_byte & (1<<1))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+        }
+    }
+
+    for(iline=0; iline<6*len; iline++){
+        if((iline % 6) == 5){
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+        }
+        else{
+            char_byte = st7529_5x7_font[*(str+iline/6)-0x20+iline%6];
+
+            if(char_byte & (1<<0))
+                st7529_write_data(0xFF);
+            else
+                st7529_write_data(0x00);
+
+            st7529_write_data(0x00);
+            st7529_write_data(0x00);
+        }
+    }
+
+    ST7529_CS_SET();
 }
