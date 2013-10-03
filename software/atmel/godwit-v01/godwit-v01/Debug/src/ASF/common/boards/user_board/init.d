@@ -2,8 +2,8 @@ src/ASF/common/boards/user_board/init.d \
  src/ASF/common/boards/user_board/init.o \
  src/ASF/common/boards/user_board/init.o: \
  ../src/ASF/common/boards/user_board/init.c ../src/asf.h \
- ../src/ASF/common/boards/user_board/user_board.h \
- ../src/config/conf_board.h ../src/ASF/avr32/utils/compiler.h \
+ ../src/ASF/avr32/drivers/cpu/cycle_counter/cycle_counter.h \
+ ../src/ASF/avr32/utils/compiler.h \
  ../src/ASF/avr32/utils/preprocessor/preprocessor.h \
  ../src/ASF/avr32/utils/preprocessor/tpaste.h \
  ../src/ASF/avr32/utils/preprocessor/stringz.h \
@@ -62,19 +62,20 @@ src/ASF/common/boards/user_board/init.d \
  ../src/ASF/common/utils/interrupt/interrupt_avr32.h \
  ../src/ASF/avr32/utils/preprocessor/tpaste.h \
  ../src/ASF/avr32/drivers/intc/intc.h \
- ../src/ASF/avr32/utils/status_codes.h \
+ ../src/ASF/common/boards/user_board/user_board.h \
+ ../src/config/conf_board.h ../src/ASF/avr32/utils/status_codes.h \
  ../src/ASF/avr32/drivers/flashcdw/flashcdw.h \
  ../src/ASF/avr32/drivers/gpio/gpio.h ../src/ASF/common/boards/board.h \
+ ../src/ASF/avr32/drivers/pdca/pdca.h \
  ../src/ASF/avr32/drivers/pm/power_clocks_lib.h \
  ../src/ASF/avr32/drivers/pm/pm_uc3l.h \
  ../src/ASF/avr32/drivers/scif/scif_uc3l.h \
- ../src/ASF/avr32/drivers/pm/sleep.h
+ ../src/ASF/avr32/drivers/pm/sleep.h \
+ ../src/ASF/avr32/drivers/usart/usart.h
 
 ../src/asf.h:
 
-../src/ASF/common/boards/user_board/user_board.h:
-
-../src/config/conf_board.h:
+../src/ASF/avr32/drivers/cpu/cycle_counter/cycle_counter.h:
 
 ../src/ASF/avr32/utils/compiler.h:
 
@@ -194,6 +195,10 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 
 ../src/ASF/avr32/drivers/intc/intc.h:
 
+../src/ASF/common/boards/user_board/user_board.h:
+
+../src/config/conf_board.h:
+
 ../src/ASF/avr32/utils/status_codes.h:
 
 ../src/ASF/avr32/drivers/flashcdw/flashcdw.h:
@@ -202,6 +207,8 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 
 ../src/ASF/common/boards/board.h:
 
+../src/ASF/avr32/drivers/pdca/pdca.h:
+
 ../src/ASF/avr32/drivers/pm/power_clocks_lib.h:
 
 ../src/ASF/avr32/drivers/pm/pm_uc3l.h:
@@ -209,3 +216,5 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 ../src/ASF/avr32/drivers/scif/scif_uc3l.h:
 
 ../src/ASF/avr32/drivers/pm/sleep.h:
+
+../src/ASF/avr32/drivers/usart/usart.h:

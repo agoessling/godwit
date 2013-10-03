@@ -52,6 +52,9 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
+// From module: CPU Cycle Counter
+#include <cycle_counter.h>
+
 // From module: Common build items for user board support templates
 #include <user_board.h>
 
@@ -68,8 +71,14 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: INTC - Interrupt Controller
+#include <intc.h>
+
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
+
+// From module: PDCA - Peripheral DMA Controller
+#include <pdca.h>
 
 // From module: PM Power Manager - UC3 L0 implementation
 #include <power_clocks_lib.h>
@@ -80,5 +89,8 @@
 
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>
+
+// From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
+#include <usart.h>
 
 #endif // ASF_H
