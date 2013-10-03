@@ -32,27 +32,28 @@
 void setup_clocks(void);
 void setup_gps_uart(void);
 void setup_uart_dma(void);
+void setup_interrupts(void);
 
 volatile unsigned int usart_timeout_flag = 0;
 volatile char usart_rx_buffer[600];
-volatile uc530_data_t data;
+volatile uc530_data_t gps_data;
 
+// GPS USART TIMEOUT INTERRUPT
 ISR(usart_timeout_handler, AVR32_USART3_IRQ, 0){
-	gpio_local_set_gpio_pin(AVR32_PIN_PA14);
-	
+	// Reset Timeout Flag
 	(&AVR32_USART3)->cr |= AVR32_USART_CR_STTTO_MASK;
 	
 	usart_timeout_flag = 1;
 	
+	// Parse GPS Data
 	uc530_parse_default(usart_rx_buffer,
 						sizeof(usart_rx_buffer),
-						&data);
-						
+						&gps_data);
+	
+	// Reload DMA Address					
 	pdca_load_channel(0,
 					  (void *)usart_rx_buffer,
 					  sizeof(usart_rx_buffer));
-					  
-	gpio_local_clr_gpio_pin(AVR32_PIN_PA14);
 }
 
 int main (void)
@@ -67,25 +68,18 @@ int main (void)
 	setup_gps_uart();
 	setup_uart_dma();
 	
-	gpio_local_enable_pin_output_driver(AVR32_PIN_PA14);
-	
-	Disable_global_interrupt();
-	
-	INTC_init_interrupts();
-	INTC_register_interrupt(&usart_timeout_handler, AVR32_USART3_IRQ, AVR32_INTC_INT0);
-	
-	Enable_global_interrupt();
+	setup_interrupts();
 	
 	while(1){
 		if(usart_timeout_flag){
 			usart_timeout_flag = 0;
 			
 			sprintf(text,"Time: %d:%d:%f",
-					data.hour,data.minute,data.second);
+					gps_data.hour,gps_data.minute,gps_data.second);
 					
 			st7529_put_5x7_text(0,0,text,17);
 			
-			sprintf(text,"Num Sats: %d", data.num_sats);
+			sprintf(text,"Num Sats: %d", gps_data.num_sats);
 			
 			st7529_put_5x7_text(0,9,text,12);
 		}
@@ -150,4 +144,13 @@ void setup_uart_dma(void){
 	
 	pdca_init_channel(0, &PDCA_OPTIONS);
 	pdca_enable(0);
+}
+
+void setup_interrupts(void){
+	Disable_global_interrupt();
+	
+	INTC_init_interrupts();
+	INTC_register_interrupt(&usart_timeout_handler, AVR32_USART3_IRQ, AVR32_INTC_INT0);
+	
+	Enable_global_interrupt();
 }
