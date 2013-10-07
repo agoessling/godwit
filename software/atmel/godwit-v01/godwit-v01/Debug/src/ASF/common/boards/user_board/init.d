@@ -70,8 +70,8 @@ src/ASF/common/boards/user_board/init.d \
  ../src/ASF/avr32/drivers/pm/power_clocks_lib.h \
  ../src/ASF/avr32/drivers/pm/pm_uc3l.h \
  ../src/ASF/avr32/drivers/scif/scif_uc3l.h \
- ../src/ASF/avr32/drivers/pm/sleep.h \
- ../src/ASF/avr32/drivers/usart/usart.h
+ ../src/ASF/avr32/drivers/pm/sleep.h ../src/ASF/avr32/drivers/twim/twim.h \
+ ../src/config/conf_twim.h ../src/ASF/avr32/drivers/usart/usart.h
 
 ../src/asf.h:
 
@@ -216,5 +216,9 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 ../src/ASF/avr32/drivers/scif/scif_uc3l.h:
 
 ../src/ASF/avr32/drivers/pm/sleep.h:
+
+../src/ASF/avr32/drivers/twim/twim.h:
+
+../src/config/conf_twim.h:
 
 ../src/ASF/avr32/drivers/usart/usart.h:

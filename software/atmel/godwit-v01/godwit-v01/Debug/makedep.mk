@@ -18,11 +18,15 @@ src\ASF\avr32\drivers\pm\power_clocks_lib.c
 
 src\ASF\avr32\drivers\scif\scif_uc3l.c
 
+src\ASF\avr32\drivers\twim\twim.c
+
 src\ASF\avr32\drivers\usart\usart.c
 
 src\ASF\avr32\utils\startup\startup_uc3.S
 
 src\ASF\avr32\utils\startup\trampoline_uc3.S
+
+src\barometer\bmp180.c
 
 src\gps\uc530.c
 

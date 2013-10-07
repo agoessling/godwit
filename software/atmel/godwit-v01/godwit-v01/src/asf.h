@@ -90,6 +90,9 @@
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>
 
+// From module: TWI - Two-Wire Master Interface
+#include <twim.h>
+
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>
 

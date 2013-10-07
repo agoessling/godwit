@@ -67,15 +67,15 @@ src/main.d src/main.o src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/avr32/drivers/pm/power_clocks_lib.h \
  ../src/ASF/avr32/drivers/pm/pm_uc3l.h \
  ../src/ASF/avr32/drivers/scif/scif_uc3l.h \
- ../src/ASF/avr32/drivers/pm/sleep.h \
- ../src/ASF/avr32/drivers/usart/usart.h \
+ ../src/ASF/avr32/drivers/pm/sleep.h ../src/ASF/avr32/drivers/twim/twim.h \
+ ../src/config/conf_twim.h ../src/ASF/avr32/drivers/usart/usart.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/stdio.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/include/stdarg.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/sys/types.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/machine/types.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/sys/features.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/sys/stdio.h \
- ../src/lcd/st7529.h ../src/gps/uc530.h
+ ../src/lcd/st7529.h ../src/gps/uc530.h ../src/barometer/bmp180.h
 
 ../src/asf.h:
 
@@ -221,6 +221,10 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 
 ../src/ASF/avr32/drivers/pm/sleep.h:
 
+../src/ASF/avr32/drivers/twim/twim.h:
+
+../src/config/conf_twim.h:
+
 ../src/ASF/avr32/drivers/usart/usart.h:
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/stdio.h:
@@ -238,3 +242,5 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 ../src/lcd/st7529.h:
 
 ../src/gps/uc530.h:
+
+../src/barometer/bmp180.h:
