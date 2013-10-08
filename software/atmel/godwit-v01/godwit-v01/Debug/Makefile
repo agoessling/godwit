@@ -44,6 +44,7 @@ SUBDIRS :=  \
 ../src/ASF/avr32/drivers/pdca/ \
 ../src/ASF/avr32/drivers/pm/ \
 ../src/ASF/avr32/drivers/scif/ \
+../src/ASF/avr32/drivers/tc/ \
 ../src/ASF/avr32/drivers/twim/ \
 ../src/ASF/avr32/drivers/usart/ \
 ../src/ASF/avr32/utils/ \
@@ -71,6 +72,7 @@ C_SRCS +=  \
 ../src/ASF/avr32/drivers/pm/pm_uc3l.c \
 ../src/ASF/avr32/drivers/pm/power_clocks_lib.c \
 ../src/ASF/avr32/drivers/scif/scif_uc3l.c \
+../src/ASF/avr32/drivers/tc/tc.c \
 ../src/ASF/avr32/drivers/twim/twim.c \
 ../src/ASF/avr32/drivers/usart/usart.c \
 ../src/barometer/bmp180.c \
@@ -98,6 +100,7 @@ src/ASF/avr32/drivers/pdca/pdca.o \
 src/ASF/avr32/drivers/pm/pm_uc3l.o \
 src/ASF/avr32/drivers/pm/power_clocks_lib.o \
 src/ASF/avr32/drivers/scif/scif_uc3l.o \
+src/ASF/avr32/drivers/tc/tc.o \
 src/ASF/avr32/drivers/twim/twim.o \
 src/ASF/avr32/drivers/usart/usart.o \
 src/ASF/avr32/utils/startup/startup_uc3.o \
@@ -117,6 +120,7 @@ src/ASF/avr32/drivers/pdca/pdca.o \
 src/ASF/avr32/drivers/pm/pm_uc3l.o \
 src/ASF/avr32/drivers/pm/power_clocks_lib.o \
 src/ASF/avr32/drivers/scif/scif_uc3l.o \
+src/ASF/avr32/drivers/tc/tc.o \
 src/ASF/avr32/drivers/twim/twim.o \
 src/ASF/avr32/drivers/usart/usart.o \
 src/ASF/avr32/utils/startup/startup_uc3.o \
@@ -136,6 +140,7 @@ src/ASF/avr32/drivers/pdca/pdca.d \
 src/ASF/avr32/drivers/pm/pm_uc3l.d \
 src/ASF/avr32/drivers/pm/power_clocks_lib.d \
 src/ASF/avr32/drivers/scif/scif_uc3l.d \
+src/ASF/avr32/drivers/tc/tc.d \
 src/ASF/avr32/drivers/twim/twim.d \
 src/ASF/avr32/drivers/usart/usart.d \
 src/ASF/avr32/utils/startup/startup_uc3.d \
@@ -155,6 +160,7 @@ src/ASF/avr32/drivers/pdca/pdca.d \
 src/ASF/avr32/drivers/pm/pm_uc3l.d \
 src/ASF/avr32/drivers/pm/power_clocks_lib.d \
 src/ASF/avr32/drivers/scif/scif_uc3l.d \
+src/ASF/avr32/drivers/tc/tc.d \
 src/ASF/avr32/drivers/twim/twim.d \
 src/ASF/avr32/drivers/usart/usart.d \
 src/ASF/avr32/utils/startup/startup_uc3.d \
@@ -205,94 +211,103 @@ LIB_DEP+=
 
 
 
+
+
 src/ASF/avr32/drivers/flashcdw/%.o: ../src/ASF/avr32/drivers/flashcdw/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/gpio/%.o: ../src/ASF/avr32/drivers/gpio/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/intc/%.o: ../src/ASF/avr32/drivers/intc/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/pdca/%.o: ../src/ASF/avr32/drivers/pdca/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/pm/%.o: ../src/ASF/avr32/drivers/pm/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/scif/%.o: ../src/ASF/avr32/drivers/scif/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	@echo Finished building: $<
+	
+
+src/ASF/avr32/drivers/tc/%.o: ../src/ASF/avr32/drivers/tc/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/twim/%.o: ../src/ASF/avr32/drivers/twim/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/usart/%.o: ../src/ASF/avr32/drivers/usart/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/barometer/%.o: ../src/barometer/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/gps/%.o: ../src/gps/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/lcd/%.o: ../src/lcd/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/%.o: ../src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/common/boards/user_board/%.o: ../src/ASF/common/boards/user_board/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU C Compiler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE)  -DBOARD=USER_BOARD  -I"../src" -I"../src/ASF/avr32/drivers/intc" -I"../src/ASF/avr32/utils" -I"../src/ASF/avr32/utils/preprocessor" -I"../src/ASF/common/boards" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/utils" -I"../src/config" -I"../src/ASF/avr32/drivers/flashcdw" -I"../src/ASF/avr32/drivers/gpio" -I"../src/ASF/avr32/drivers/pm" -I"../src/ASF/avr32/drivers/scif" -I"../src/ASF/avr32/drivers/cpu/cycle_counter" -I"../src/ASF/avr32/drivers/usart" -I"../src/ASF/avr32/drivers/pdca" -I"../src/ASF/avr32/drivers/twim" -I"../src/ASF/avr32/drivers/tc"  -O0 -fdata-sections -ffunction-sections -g3 -Wall -mpart=uc128l4u -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -mno-cond-exec-before-reload -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
@@ -303,42 +318,42 @@ src/ASF/common/boards/user_board/%.o: ../src/ASF/common/boards/user_board/%.c
 src/ASF/avr32/drivers/intc/%.o: ../src/ASF/avr32/drivers/intc/%.S
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU Preprocessing Assembler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim" -I "../src/ASF/avr32/drivers/tc"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/intc/%.o: ../src/ASF/avr32/drivers/intc/%.x
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU Preprocessing Assembler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim" -I "../src/ASF/avr32/drivers/tc"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/drivers/intc/%.o: ../src/ASF/avr32/drivers/intc/%.X
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU Preprocessing Assembler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim" -I "../src/ASF/avr32/drivers/tc"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/utils/startup/%.o: ../src/ASF/avr32/utils/startup/%.S
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU Preprocessing Assembler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim" -I "../src/ASF/avr32/drivers/tc"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/utils/startup/%.o: ../src/ASF/avr32/utils/startup/%.x
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU Preprocessing Assembler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim" -I "../src/ASF/avr32/drivers/tc"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
 	@echo Finished building: $<
 	
 
 src/ASF/avr32/utils/startup/%.o: ../src/ASF/avr32/utils/startup/%.X
 	@echo Building file: $<
 	@echo Invoking: AVR32/GNU Preprocessing Assembler : 3.4.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.2.1002\avr32-gnu-toolchain\bin\avr32-gcc.exe$(QUOTE) -x assembler-with-cpp -c -mpart=uc128l4u -mrelax -DBOARD=USER_BOARD -I "../src" -I "../src/ASF/avr32/drivers/intc" -I "../src/ASF/avr32/utils" -I "../src/ASF/avr32/utils/preprocessor" -I "../src/ASF/common/boards" -I "../src/ASF/common/boards/user_board" -I "../src/ASF/common/utils" -I "../src/config" -I "../src/ASF/avr32/drivers/flashcdw" -I "../src/ASF/avr32/drivers/gpio" -I "../src/ASF/avr32/drivers/pm" -I "../src/ASF/avr32/drivers/scif" -I "../src/ASF/avr32/drivers/cpu/cycle_counter" -I "../src/ASF/avr32/drivers/usart" -I "../src/ASF/avr32/drivers/pdca" -I "../src/ASF/avr32/drivers/twim" -I "../src/ASF/avr32/drivers/tc"  -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<"
 	@echo Finished building: $<
 	
 

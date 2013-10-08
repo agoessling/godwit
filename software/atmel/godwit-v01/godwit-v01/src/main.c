@@ -34,6 +34,8 @@
 #define SENS_STATE_MAG		1
 #define SENS_STATE_TEMP		2
 
+#define TICK_RATE	20
+
 void setup_clocks(void);
 void setup_gps_uart(void);
 void setup_uart_dma(void);
@@ -41,6 +43,7 @@ void setup_sens_twi(void);
 void setup_magnetometer(void);
 void setup_barometer(void);
 void setup_interrupts(void);
+void setup_tick(void);
 
 void twim_write_dma(volatile avr32_twim_t *twim, uint8_t dma_ch, uint8_t saddr, uint8_t *bytes, uint8_t len);
 void twim_write_blocking(volatile avr32_twim_t *twim, uint8_t saddr, uint8_t *bytes, uint8_t len);
@@ -55,6 +58,9 @@ volatile uint8_t sens_tx_buffer[2] = {0xF4, 0xB4};
 volatile uint8_t sens_rx_buffer[6];
 volatile uint32_t sens_rx_flag = 0;
 volatile uint32_t sens_rx_state = SENS_STATE_PRESSURE;
+
+volatile uint32_t tick_cnt = 0;
+volatile uint32_t last_cnt = 0;
 
 // GPS USART TIMEOUT INTERRUPT
 ISR(usart_timeout_handler, AVR32_USART3_IRQ, 0){
@@ -72,6 +78,13 @@ ISR(usart_timeout_handler, AVR32_USART3_IRQ, 0){
 	pdca_load_channel(0,
 					  (void *)usart_rx_buffer,
 					  sizeof(usart_rx_buffer));
+			
+	// Deal With Tick Timer
+	last_cnt = tick_cnt;
+	tick_cnt = 0;
+	AVR32_TC0.channel[0].ccr = AVR32_TC_CCR0_SWTRG_MASK;	// Reset Counter
+	AVR32_TC0.channel[0].sr;	// Reset any interrupt flags
+	AVR32_TC0.channel[0].ier = AVR32_TC_IER0_CPCS_MASK;	// Enable Compare Match Interrupt
 }
 
 ISR(sens_rx_complete_handler, AVR32_PDCA_IRQ_1, 0){
@@ -101,6 +114,20 @@ ISR(sens_rx_complete_handler, AVR32_PDCA_IRQ_1, 0){
 	}
 }
 
+ISR(tick_handler, AVR32_TC0_IRQ0, 0){
+	// Clear Interrupt
+	AVR32_TC0.channel[0].sr;
+	
+	tick_cnt++;
+	
+	if(tick_cnt < TICK_RATE-1){
+		// Do Regular Things
+	}
+	else
+		// Disable Interrupt
+		AVR32_TC0.channel[0].idr = AVR32_TC_IDR0_CPCS_MASK;
+}
+
 int main (void)
 {
 	char text[50];
@@ -109,6 +136,10 @@ int main (void)
 	setup_clocks();
 	
 	gpio_local_init();
+	
+	gpio_local_enable_pin_output_driver(AVR32_PIN_PA14);
+	gpio_local_enable_pin_output_driver(AVR32_PIN_PA20);
+	
 	st7529_init();
 	setup_gps_uart();
 	setup_uart_dma();
@@ -116,6 +147,8 @@ int main (void)
 	
 	setup_magnetometer();
 	setup_barometer();
+	
+	setup_tick();
 	
 	setup_interrupts();
 	
@@ -128,7 +161,7 @@ int main (void)
 					
 			st7529_put_5x7_text(0,0,text,17);
 			
-			sprintf(text,"Num Sats: %d", gps_data.num_sats);
+			sprintf(text,"Num Sats: %d", last_cnt);//gps_data.num_sats);
 			
 			st7529_put_5x7_text(0,9,text,12);
 			
@@ -402,12 +435,57 @@ void sens_rx_start(void){
 	AVR32_TWIM0.thr = raddr;
 }
 
+void setup_tick(void){
+	// TC Settings
+	static const tc_waveform_opt_t waveform_opt = {
+		.channel = 0,
+		.bswtrg = TC_EVT_EFFECT_NOOP,
+		.beevt = TC_EVT_EFFECT_NOOP,
+		.bcpc = TC_EVT_EFFECT_NOOP,
+		.bcpb = TC_EVT_EFFECT_NOOP,
+		.aswtrg = TC_EVT_EFFECT_NOOP,
+		.aeevt = TC_EVT_EFFECT_NOOP,
+		.acpc = TC_EVT_EFFECT_NOOP,
+		.acpa = TC_EVT_EFFECT_NOOP,
+		.wavsel = TC_WAVEFORM_SEL_UP_MODE_RC_TRIGGER,	// Clear on Compare Match
+		.enetrg = false,
+		.eevt = 0,
+		.eevtedg = TC_SEL_NO_EDGE,
+		.cpcdis = false,
+		.cpcstop = false,
+		.burst = false,
+		.clki = false,
+		.tcclks = TC_CLOCK_SOURCE_TC5	// PBA/128
+	};
+	
+	// Compare Match Interrupt Settings
+	static const tc_interrupt_t tc_interrupt = {
+		.etrgs = 0,
+		.ldrbs = 0,
+		.ldras = 0,
+		.cpcs = 1,	// Compare Match Interrupt
+		.cpbs = 0,
+		.cpas = 0,
+		.lovrs = 0,
+		.covfs = 0
+	};
+	
+	tc_init_waveform(&AVR32_TC0, &waveform_opt);
+	// Achieve TICK_RATE ticks, but empty slot before GPS packet
+	// for margin.
+	tc_write_rc(&AVR32_TC0, 0, PBA_FREQ/128/(TICK_RATE+1));
+	tc_configure_interrupts(&AVR32_TC0, 0, &tc_interrupt);
+	
+	tc_start(&AVR32_TC0, 0);
+}
+
 void setup_interrupts(void){
 	Disable_global_interrupt();
 	
 	INTC_init_interrupts();
 	INTC_register_interrupt(&usart_timeout_handler, AVR32_USART3_IRQ, AVR32_INTC_INT0);
 	INTC_register_interrupt(&sens_rx_complete_handler, AVR32_PDCA_IRQ_1, AVR32_INTC_INT0);
+	INTC_register_interrupt(&tick_handler, AVR32_TC0_IRQ0, AVR32_INTC_INT0);
 	
 	Enable_global_interrupt();
 }

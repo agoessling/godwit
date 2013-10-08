@@ -18,6 +18,8 @@ src\ASF\avr32\drivers\pm\power_clocks_lib.c
 
 src\ASF\avr32\drivers\scif\scif_uc3l.c
 
+src\ASF\avr32\drivers\tc\tc.c
+
 src\ASF\avr32\drivers\twim\twim.c
 
 src\ASF\avr32\drivers\usart\usart.c
