@@ -67,9 +67,19 @@ src/main.d src/main.o src/main.o: ../src/main.c ../src/asf.h \
  ../src/ASF/avr32/drivers/pm/power_clocks_lib.h \
  ../src/ASF/avr32/drivers/pm/pm_uc3l.h \
  ../src/ASF/avr32/drivers/scif/scif_uc3l.h \
- ../src/ASF/avr32/drivers/pm/sleep.h ../src/ASF/avr32/drivers/tc/tc.h \
- ../src/ASF/avr32/drivers/twim/twim.h ../src/config/conf_twim.h \
- ../src/ASF/avr32/drivers/usart/usart.h \
+ ../src/ASF/avr32/drivers/pm/sleep.h ../src/ASF/avr32/drivers/pwma/pwma.h \
+ ../src/ASF/common/services/clock/sysclk.h ../src/config/conf_clock.h \
+ ../src/ASF/common/services/clock/uc3l/sysclk.h \
+ ../src/ASF/common/services/clock/dfll.h \
+ ../src/ASF/common/services/clock/uc3l/dfll.h \
+ ../src/ASF/common/services/clock/genclk.h \
+ ../src/ASF/common/services/clock/uc3l/genclk.h \
+ ../src/ASF/common/services/clock/osc.h \
+ ../src/ASF/common/services/clock/uc3l/osc.h \
+ ../src/ASF/common/services/clock/pll.h \
+ ../src/ASF/common/services/clock/uc3l/pll.h \
+ ../src/ASF/avr32/drivers/tc/tc.h ../src/ASF/avr32/drivers/twim/twim.h \
+ ../src/config/conf_twim.h ../src/ASF/avr32/drivers/usart/usart.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/stdio.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/include/stdarg.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr32-gnu-toolchain\bin\../lib/gcc/avr32/4.4.7/../../../../avr32/include/sys/types.h \
@@ -221,6 +231,30 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr32\ gcc\native\3.4.2.1002\avr
 ../src/ASF/avr32/drivers/scif/scif_uc3l.h:
 
 ../src/ASF/avr32/drivers/pm/sleep.h:
+
+../src/ASF/avr32/drivers/pwma/pwma.h:
+
+../src/ASF/common/services/clock/sysclk.h:
+
+../src/config/conf_clock.h:
+
+../src/ASF/common/services/clock/uc3l/sysclk.h:
+
+../src/ASF/common/services/clock/dfll.h:
+
+../src/ASF/common/services/clock/uc3l/dfll.h:
+
+../src/ASF/common/services/clock/genclk.h:
+
+../src/ASF/common/services/clock/uc3l/genclk.h:
+
+../src/ASF/common/services/clock/osc.h:
+
+../src/ASF/common/services/clock/uc3l/osc.h:
+
+../src/ASF/common/services/clock/pll.h:
+
+../src/ASF/common/services/clock/uc3l/pll.h:
 
 ../src/ASF/avr32/drivers/tc/tc.h:
 

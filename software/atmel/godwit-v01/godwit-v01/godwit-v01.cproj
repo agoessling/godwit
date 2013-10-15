@@ -15,12 +15,14 @@
     <option id="avr32.drivers.intc" value="Add" config="" content-id="Atmel.ASF" />
     <option id="avr32.drivers.pdca" value="Add" config="" content-id="Atmel.ASF" />
     <option id="avr32.drivers.pm" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="avr32.drivers.pwma" value="Add" config="" content-id="Atmel.ASF" />
     <option id="avr32.drivers.scif" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="avr32.drivers.tc" value="Add" config="" content-id="Atmel.ASF" />
     <option id="avr32.drivers.twim" value="Add" config="" content-id="Atmel.ASF" />
     <option id="avr32.drivers.usart" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
     <option id="common.utils.interrupt" value="Add" config="" content-id="Atmel.ASF" />
-    <option id="avr32.drivers.tc" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.services.basic.clock" value="Add" config="" content-id="Atmel.ASF" />
   </options>
   <configurations>
     <configuration key="config.avr32.utils.trampoline" value="yes" default="yes" content-id="Atmel.ASF" />
@@ -75,6 +77,23 @@
     <file path="src/Config/conf_twim.h" framework="" version="3.3.0" source="avr32\drivers\twim\module_config\conf_twim.h" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/avr32/drivers/tc/tc.c" framework="" version="3.3.0" source="avr32\drivers\tc\tc.c" changed="False" content-id="Atmel.ASF" />
     <file path="src/ASF/avr32/drivers/tc/tc.h" framework="" version="3.3.0" source="avr32\drivers\tc\tc.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/avr32/drivers/pwma/pwma.c" framework="" version="3.3.0" source="avr32\drivers\pwma\pwma.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/avr32/drivers/pwma/pwma.h" framework="" version="3.3.0" source="avr32\drivers\pwma\pwma.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/pll.c" framework="" version="3.3.0" source="common\services\clock\uc3l\pll.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/dfll.c" framework="" version="3.3.0" source="common\services\clock\uc3l\dfll.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/sysclk.c" framework="" version="3.3.0" source="common\services\clock\uc3l\sysclk.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/osc.c" framework="" version="3.3.0" source="common\services\clock\uc3l\osc.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/pll.h" framework="" version="3.3.0" source="common\services\clock\uc3l\pll.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/dfll.h" framework="" version="3.3.0" source="common\services\clock\dfll.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/genclk.h" framework="" version="3.3.0" source="common\services\clock\genclk.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/osc.h" framework="" version="3.3.0" source="common\services\clock\osc.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/dfll.h" framework="" version="3.3.0" source="common\services\clock\uc3l\dfll.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/genclk.h" framework="" version="3.3.0" source="common\services\clock\uc3l\genclk.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/osc.h" framework="" version="3.3.0" source="common\services\clock\uc3l\osc.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/uc3l/sysclk.h" framework="" version="3.3.0" source="common\services\clock\uc3l\sysclk.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/sysclk.h" framework="" version="3.3.0" source="common\services\clock\sysclk.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/services/clock/pll.h" framework="" version="3.3.0" source="common\services\clock\pll.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/Config/conf_clock.h" framework="" version="3.3.0" source="common\services\clock\uc3l\module_config\conf_clock.h" changed="False" content-id="Atmel.ASF" />
   </files>
   <documentation help="http://asf.atmel.com/docs/3.11.0/common.applications.user_application.user_board.uc3l/html/index.html" />
   <offline-documentation help="" />
@@ -150,6 +169,8 @@
       <Value>../src/ASF/avr32/drivers/pdca</Value>
       <Value>../src/ASF/avr32/drivers/twim</Value>
       <Value>../src/ASF/avr32/drivers/tc</Value>
+      <Value>../src/ASF/avr32/drivers/pwma</Value>
+      <Value>../src/ASF/common/services/clock</Value>
     </ListValues>
   </avr32gcc.compiler.directories.IncludePaths>
   <avr32gcc.compiler.optimization.level>Optimize for size (-Os)</avr32gcc.compiler.optimization.level>
@@ -180,6 +201,8 @@
       <Value>../src/ASF/avr32/drivers/pdca</Value>
       <Value>../src/ASF/avr32/drivers/twim</Value>
       <Value>../src/ASF/avr32/drivers/tc</Value>
+      <Value>../src/ASF/avr32/drivers/pwma</Value>
+      <Value>../src/ASF/common/services/clock</Value>
     </ListValues>
   </avr32gcc.assembler.general.IncludePaths>
   <avr32gcc.preprocessingassembler.general.AssemblerFlags>-mrelax -DBOARD=USER_BOARD</avr32gcc.preprocessingassembler.general.AssemblerFlags>
@@ -202,6 +225,8 @@
       <Value>../src/ASF/avr32/drivers/pdca</Value>
       <Value>../src/ASF/avr32/drivers/twim</Value>
       <Value>../src/ASF/avr32/drivers/tc</Value>
+      <Value>../src/ASF/avr32/drivers/pwma</Value>
+      <Value>../src/ASF/common/services/clock</Value>
     </ListValues>
   </avr32gcc.preprocessingassembler.general.IncludePaths>
 </Avr32Gcc>
@@ -242,6 +267,8 @@
       <Value>../src/ASF/avr32/drivers/pdca</Value>
       <Value>../src/ASF/avr32/drivers/twim</Value>
       <Value>../src/ASF/avr32/drivers/tc</Value>
+      <Value>../src/ASF/avr32/drivers/pwma</Value>
+      <Value>../src/ASF/common/services/clock</Value>
     </ListValues>
   </avr32gcc.compiler.directories.IncludePaths>
   <avr32gcc.compiler.optimization.OtherFlags>-fdata-sections</avr32gcc.compiler.optimization.OtherFlags>
@@ -272,6 +299,8 @@
       <Value>../src/ASF/avr32/drivers/pdca</Value>
       <Value>../src/ASF/avr32/drivers/twim</Value>
       <Value>../src/ASF/avr32/drivers/tc</Value>
+      <Value>../src/ASF/avr32/drivers/pwma</Value>
+      <Value>../src/ASF/common/services/clock</Value>
     </ListValues>
   </avr32gcc.assembler.general.IncludePaths>
   <avr32gcc.assembler.debugging.DebugLevel>Default (-g)</avr32gcc.assembler.debugging.DebugLevel>
@@ -295,6 +324,8 @@
       <Value>../src/ASF/avr32/drivers/pdca</Value>
       <Value>../src/ASF/avr32/drivers/twim</Value>
       <Value>../src/ASF/avr32/drivers/tc</Value>
+      <Value>../src/ASF/avr32/drivers/pwma</Value>
+      <Value>../src/ASF/common/services/clock</Value>
     </ListValues>
   </avr32gcc.preprocessingassembler.general.IncludePaths>
   <avr32gcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</avr32gcc.preprocessingassembler.debugging.DebugLevel>
@@ -348,6 +379,12 @@
     <None Include="src\ASF\avr32\drivers\pm\sleep.h">
       <SubType>compile</SubType>
     </None>
+    <Compile Include="src\ASF\avr32\drivers\pwma\pwma.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\avr32\drivers\pwma\pwma.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\ASF\avr32\drivers\scif\scif_uc3l.c">
       <SubType>compile</SubType>
     </Compile>
@@ -381,12 +418,57 @@
     <None Include="src\config\conf_twim.h">
       <SubType>compile</SubType>
     </None>
+    <None Include="src\ASF\common\services\clock\dfll.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\genclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\osc.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\sysclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\pll.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\services\clock\uc3l\dfll.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common\services\clock\uc3l\dfll.h">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="src\ASF\common\services\clock\uc3l\genclk.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\services\clock\uc3l\osc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common\services\clock\uc3l\osc.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\services\clock\uc3l\pll.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common\services\clock\uc3l\pll.h">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="src\ASF\common\services\clock\uc3l\sysclk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="src\ASF\common\services\clock\uc3l\sysclk.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\barometer\bmp180.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\barometer\bmp180.h">
       <SubType>compile</SubType>
     </Compile>
+    <None Include="src\config\conf_clock.h">
+      <SubType>compile</SubType>
+    </None>
     <Compile Include="src\gps\uc530.c">
       <SubType>compile</SubType>
     </Compile>
@@ -490,6 +572,7 @@
     <Folder Include="src\ASF\avr32\drivers\intc\" />
     <Folder Include="src\ASF\avr32\drivers\pdca\" />
     <Folder Include="src\ASF\avr32\drivers\pm\" />
+    <Folder Include="src\ASF\avr32\drivers\pwma\" />
     <Folder Include="src\ASF\avr32\drivers\scif\" />
     <Folder Include="src\ASF\avr32\drivers\tc\" />
     <Folder Include="src\ASF\avr32\drivers\twim\" />
@@ -502,6 +585,9 @@
     <Folder Include="src\ASF\common\" />
     <Folder Include="src\ASF\common\boards\" />
     <Folder Include="src\ASF\common\boards\user_board\" />
+    <Folder Include="src\ASF\common\services\" />
+    <Folder Include="src\ASF\common\services\clock\" />
+    <Folder Include="src\ASF\common\services\clock\uc3l\" />
     <Folder Include="src\ASF\common\utils\" />
     <Folder Include="src\ASF\common\utils\interrupt\" />
     <Folder Include="src\config\" />

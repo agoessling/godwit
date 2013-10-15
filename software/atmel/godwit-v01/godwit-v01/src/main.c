@@ -42,6 +42,7 @@ void setup_uart_dma(void);
 void setup_sens_twi(void);
 void setup_magnetometer(void);
 void setup_barometer(void);
+void setup_buzzer(void);
 void setup_interrupts(void);
 void setup_tick(void);
 
@@ -137,9 +138,6 @@ int main (void)
 	
 	gpio_local_init();
 	
-	gpio_local_enable_pin_output_driver(AVR32_PIN_PA14);
-	gpio_local_enable_pin_output_driver(AVR32_PIN_PA20);
-	
 	st7529_init();
 	setup_gps_uart();
 	setup_uart_dma();
@@ -147,6 +145,7 @@ int main (void)
 	
 	setup_magnetometer();
 	setup_barometer();
+	setup_buzzer();
 	
 	setup_tick();
 	
@@ -161,7 +160,7 @@ int main (void)
 					
 			st7529_put_5x7_text(0,0,text,17);
 			
-			sprintf(text,"Num Sats: %d", last_cnt);//gps_data.num_sats);
+			sprintf(text,"Num Sats: %d", gps_data.num_sats);
 			
 			st7529_put_5x7_text(0,9,text,12);
 			
@@ -433,6 +432,25 @@ void sens_rx_start(void){
 	
 	// Initial Read Address Write
 	AVR32_TWIM0.thr = raddr;
+}
+
+void setup_buzzer(void){
+	// Setup Generic Clock for PWM
+	genclk_enable_config(AVR32_SCIF_GCLK_PWMA, AVR32_SCIF_GCCTRL_OSCSEL_CLK_PBA, PBA_FREQ/50000UL);
+	
+	static const gpio_map_t PWMA_GPIO_MAP = {
+		{AVR32_PWMA_14_PIN, AVR32_PWMA_14_FUNCTION},
+		{AVR32_PWMA_20_0_PIN, AVR32_PWMA_20_0_FUNCTION},
+	};
+	
+	gpio_enable_module(PWMA_GPIO_MAP, 2);
+	
+	pwma_config_enable(&AVR32_PWMA, 400, 50000UL, 0);	
+	
+	pwma_set_channels_value(&AVR32_PWMA, (1<<14), AVR32_PWMA.CR.top/2);
+	pwma_set_channels_value(&AVR32_PWMA, (1<<20), AVR32_PWMA.CR.top/2);
+	pwma_set_channels_value(&AVR32_PWMA, (1<<21), AVR32_PWMA.CR.top);
+	pwma_enable_cwg_mode(&AVR32_PWMA, (1<<10));
 }
 
 void setup_tick(void){
